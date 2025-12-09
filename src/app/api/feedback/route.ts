@@ -36,25 +36,35 @@ export async function POST(request: NextRequest) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ email, feedback }),
+      redirect: 'follow',
     });
 
-    if (!res.ok) {
-      const text = await res.text();
-      console.error('GAS feedback error:', res.status, text);
-      return NextResponse.json(
-        { error: 'Failed to submit feedback' },
-        { status: 502 }
-      );
+    // GAS often returns 302 to a Googleusercontent URL; consider 2xx and 3xx as acceptable
+    const acceptable = res.ok || (res.status >= 300 && res.status < 400);
+    const text = await res.text();
+
+    // Try JSON first
+    let body: unknown = {};
+    try {
+      body = JSON.parse(text);
+    } catch {
+      body = {};
     }
 
-    const body = await res.json().catch(() => ({}));
-    if (body && body.status === 'success') {
+    const isSuccessObject =
+      typeof body === 'object' &&
+      body !== null &&
+      'status' in body &&
+      (body as { status: unknown }).status === 'success';
+
+    if (acceptable || isSuccessObject) {
       return NextResponse.json({
         success: true,
         message: 'Feedback received successfully',
       });
     }
 
+    console.error('GAS feedback error:', res.status, text);
     return NextResponse.json(
       { error: 'Failed to submit feedback' },
       { status: 502 }
