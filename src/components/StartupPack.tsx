@@ -117,7 +117,7 @@ export default function StartupPack({ pack }: StartupPackProps) {
             <h3 className="text-lg font-semibold text-gray-900">MVP 계획 + 목업 구조</h3>
           </div>
           <div className="rounded-xl border border-[rgba(0,0,0,0.08)] bg-[#F7F7F8] px-4 py-3">
-            <pre className="text-sm text-gray-800 whitespace-pre-wrap font-sans leading-relaxed">
+            <pre className="text-sm text-[#111] whitespace-pre-wrap font-sans leading-relaxed">
               {pack.mvp}
             </pre>
           </div>
@@ -157,7 +157,7 @@ export default function StartupPack({ pack }: StartupPackProps) {
                       )}
                     </div>
                     {description && (
-                      <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
+                      <p className="text-sm text-[#595959] leading-relaxed">{description}</p>
                     )}
                   </div>
                 </div>
@@ -182,7 +182,7 @@ export default function StartupPack({ pack }: StartupPackProps) {
               <span className="text-xs font-semibold text-[#3B82F6]">06</span>
               <h3 className="text-lg font-semibold text-gray-900">리스크 & 검증 계획</h3>
             </div>
-            <p className="text-gray-800 leading-relaxed whitespace-pre-line">
+            <p className="text-[#111] leading-relaxed whitespace-pre-line">
               {pack.validation}
             </p>
           </div>

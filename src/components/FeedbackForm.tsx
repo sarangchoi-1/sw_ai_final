@@ -144,7 +144,7 @@ export default function FeedbackForm({ onSubmit }: FeedbackFormProps) {
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-3 px-6 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+          className="w-full py-3 px-6 bg-black hover:bg-neutral-900 disabled:bg-neutral-400 text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
         >
           {loading ? (
             <>
