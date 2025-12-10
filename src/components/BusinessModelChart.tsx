@@ -29,8 +29,8 @@ export default function BusinessModelChart({ data }: BusinessModelChartProps) {
           {/* Left Column */}
           <div className="space-y-4">
             {/* Value Proposition */}
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/20 border-2 border-blue-200 dark:border-blue-700 rounded-lg p-4">
-              <h4 className="font-semibold text-blue-900 dark:text-blue-200 mb-2 flex items-center gap-2">
+            <div className="bg-white border border-[rgba(0,0,0,0.08)] rounded-xl p-4 shadow-sm">
+              <h4 className="font-semibold text-[#111] mb-2 flex items-center gap-2">
                 <svg
                   className="w-5 h-5"
                   fill="none"
@@ -46,14 +46,14 @@ export default function BusinessModelChart({ data }: BusinessModelChartProps) {
                 </svg>
                 가치 제안
               </h4>
-              <p className="text-sm text-gray-700 dark:text-gray-300">
+              <p className="text-sm text-[#111] leading-relaxed">
                 {bmData.valueProposition || 'N/A'}
               </p>
             </div>
 
             {/* Customer Segments */}
-            <div className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/20 border-2 border-green-200 dark:border-green-700 rounded-lg p-4">
-              <h4 className="font-semibold text-green-900 dark:text-green-200 mb-2 flex items-center gap-2">
+            <div className="bg-white border border-[rgba(0,0,0,0.08)] rounded-xl p-4 shadow-sm">
+              <h4 className="font-semibold text-[#111] mb-2 flex items-center gap-2">
                 <svg
                   className="w-5 h-5"
                   fill="none"
@@ -69,14 +69,14 @@ export default function BusinessModelChart({ data }: BusinessModelChartProps) {
                 </svg>
                 고객 세그먼트
               </h4>
-              <p className="text-sm text-gray-700 dark:text-gray-300">
+              <p className="text-sm text-[#111] leading-relaxed">
                 {bmData.customerSegments || 'N/A'}
               </p>
             </div>
 
             {/* Channels */}
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-800/20 border-2 border-purple-200 dark:border-purple-700 rounded-lg p-4">
-              <h4 className="font-semibold text-purple-900 dark:text-purple-200 mb-2 flex items-center gap-2">
+            <div className="bg-white border border-[rgba(0,0,0,0.08)] rounded-xl p-4 shadow-sm">
+              <h4 className="font-semibold text-[#111] mb-2 flex items-center gap-2">
                 <svg
                   className="w-5 h-5"
                   fill="none"
@@ -92,7 +92,7 @@ export default function BusinessModelChart({ data }: BusinessModelChartProps) {
                 </svg>
                 채널
               </h4>
-              <p className="text-sm text-gray-700 dark:text-gray-300">
+              <p className="text-sm text-[#111] leading-relaxed">
                 {bmData.channels || 'N/A'}
               </p>
             </div>
@@ -101,8 +101,8 @@ export default function BusinessModelChart({ data }: BusinessModelChartProps) {
           {/* Right Column */}
           <div className="space-y-4">
             {/* Revenue Streams */}
-            <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 dark:from-yellow-900/30 dark:to-yellow-800/20 border-2 border-yellow-200 dark:border-yellow-700 rounded-lg p-4">
-              <h4 className="font-semibold text-yellow-900 dark:text-yellow-200 mb-2 flex items-center gap-2">
+            <div className="bg-white border border-[rgba(0,0,0,0.08)] rounded-xl p-4 shadow-sm">
+              <h4 className="font-semibold text-[#111] mb-2 flex items-center gap-2">
                 <svg
                   className="w-5 h-5"
                   fill="none"
@@ -118,14 +118,14 @@ export default function BusinessModelChart({ data }: BusinessModelChartProps) {
                 </svg>
                 수익원
               </h4>
-              <p className="text-sm text-gray-700 dark:text-gray-300">
+              <p className="text-sm text-[#111] leading-relaxed">
                 {bmData.revenueStreams || 'N/A'}
               </p>
             </div>
 
             {/* Key Partners */}
-            <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900/30 dark:to-indigo-800/20 border-2 border-indigo-200 dark:border-indigo-700 rounded-lg p-4">
-              <h4 className="font-semibold text-indigo-900 dark:text-indigo-200 mb-2 flex items-center gap-2">
+            <div className="bg-white border border-[rgba(0,0,0,0.08)] rounded-xl p-4 shadow-sm">
+              <h4 className="font-semibold text-[#111] mb-2 flex items-center gap-2">
                 <svg
                   className="w-5 h-5"
                   fill="none"
@@ -141,14 +141,14 @@ export default function BusinessModelChart({ data }: BusinessModelChartProps) {
                 </svg>
                 핵심 파트너
               </h4>
-              <p className="text-sm text-gray-700 dark:text-gray-300">
+              <p className="text-sm text-[#111] leading-relaxed">
                 {bmData.keyPartners || 'N/A'}
               </p>
             </div>
 
             {/* Key Activities */}
-            <div className="bg-gradient-to-br from-pink-50 to-pink-100 dark:from-pink-900/30 dark:to-pink-800/20 border-2 border-pink-200 dark:border-pink-700 rounded-lg p-4">
-              <h4 className="font-semibold text-pink-900 dark:text-pink-200 mb-2 flex items-center gap-2">
+            <div className="bg-white border border-[rgba(0,0,0,0.08)] rounded-xl p-4 shadow-sm">
+              <h4 className="font-semibold text-[#111] mb-2 flex items-center gap-2">
                 <svg
                   className="w-5 h-5"
                   fill="none"
@@ -164,7 +164,7 @@ export default function BusinessModelChart({ data }: BusinessModelChartProps) {
                 </svg>
                 핵심 활동
               </h4>
-              <p className="text-sm text-gray-700 dark:text-gray-300">
+              <p className="text-sm text-[#111] leading-relaxed">
                 {bmData.keyActivities || 'N/A'}
               </p>
             </div>
@@ -174,8 +174,8 @@ export default function BusinessModelChart({ data }: BusinessModelChartProps) {
         {/* Bottom Row - Full Width */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
           {/* Key Resources */}
-          <div className="bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900/30 dark:to-teal-800/20 border-2 border-teal-200 dark:border-teal-700 rounded-lg p-4">
-            <h4 className="font-semibold text-teal-900 dark:text-teal-200 mb-2 flex items-center gap-2">
+          <div className="bg-white border border-[rgba(0,0,0,0.08)] rounded-xl p-4 shadow-sm">
+            <h4 className="font-semibold text-[#111] mb-2 flex items-center gap-2">
               <svg
                 className="w-5 h-5"
                 fill="none"
@@ -191,14 +191,14 @@ export default function BusinessModelChart({ data }: BusinessModelChartProps) {
               </svg>
               핵심 자원
             </h4>
-            <p className="text-sm text-gray-700 dark:text-gray-300">
+            <p className="text-sm text-[#111] leading-relaxed">
               {bmData.keyResources || 'N/A'}
             </p>
           </div>
 
           {/* Cost Structure */}
-          <div className="bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/30 dark:to-red-800/20 border-2 border-red-200 dark:border-red-700 rounded-lg p-4">
-            <h4 className="font-semibold text-red-900 dark:text-red-200 mb-2 flex items-center gap-2">
+          <div className="bg-white border border-[rgba(0,0,0,0.08)] rounded-xl p-4 shadow-sm">
+            <h4 className="font-semibold text-[#111] mb-2 flex items-center gap-2">
               <svg
                 className="w-5 h-5"
                 fill="none"
@@ -214,7 +214,7 @@ export default function BusinessModelChart({ data }: BusinessModelChartProps) {
               </svg>
               비용 구조
             </h4>
-            <p className="text-sm text-gray-700 dark:text-gray-300">
+            <p className="text-sm text-[#111] leading-relaxed">
               {bmData.costStructure || 'N/A'}
             </p>
           </div>
@@ -225,8 +225,8 @@ export default function BusinessModelChart({ data }: BusinessModelChartProps) {
 
   // Fallback to simple text display
   return (
-    <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-      <p className="text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+    <div className="bg-white border border-[rgba(0,0,0,0.08)] rounded-xl p-4 shadow-sm">
+      <p className="text-[#111] leading-relaxed whitespace-pre-line">
         {bmData.simple || 'No business model data available'}
       </p>
     </div>

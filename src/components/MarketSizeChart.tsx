@@ -44,6 +44,10 @@ export default function MarketSizeChart({ marketSize }: MarketSizeChartProps) {
   const tamPercentage = 100;
   const samPercentage = getPercentage(marketSize.sam.value, maxValue);
   const somPercentage = getPercentage(marketSize.som.value, maxValue);
+  // Ensure SOM shows at least 0.1% if value exists, and use 2 decimal places for precision
+  const somDisplayPercentage = marketSize.som.value > 0 
+    ? Math.max(somPercentage, 0.1) 
+    : 0;
 
   return (
     <div className="w-full space-y-6">
@@ -64,13 +68,9 @@ export default function MarketSizeChart({ marketSize }: MarketSizeChartProps) {
           </div>
           <div className="w-full bg-gray-200/70 dark:bg-gray-700 rounded-full h-8 relative overflow-hidden">
             <div
-              className="h-full rounded-full flex items-center justify-end pr-4 transition-all duration-700"
+              className="h-full rounded-full transition-all duration-700"
               style={{ width: `${tamPercentage}%`, backgroundColor: '#3B82F6' }}
-            >
-              <span className="text-white text-xs font-medium">
-                {tamPercentage.toFixed(1)}%
-              </span>
-            </div>
+            />
           </div>
           <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
             {marketSize.tam.description}
@@ -92,13 +92,9 @@ export default function MarketSizeChart({ marketSize }: MarketSizeChartProps) {
           </div>
           <div className="w-full bg-gray-200/70 dark:bg-gray-700 rounded-full h-8 relative overflow-hidden">
             <div
-              className="h-full rounded-full flex items-center justify-end pr-4 transition-all duration-700"
+              className="h-full rounded-full transition-all duration-700"
               style={{ width: `${samPercentage}%`, backgroundColor: '#10B981' }}
-            >
-              <span className="text-white text-xs font-medium">
-                {samPercentage.toFixed(1)}%
-              </span>
-            </div>
+            />
           </div>
           <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
             {marketSize.sam.description}
@@ -120,13 +116,9 @@ export default function MarketSizeChart({ marketSize }: MarketSizeChartProps) {
           </div>
           <div className="w-full bg-gray-200/70 dark:bg-gray-700 rounded-full h-8 relative overflow-hidden">
             <div
-              className="h-full rounded-full flex items-center justify-end pr-4 transition-all duration-700"
-              style={{ width: `${somPercentage}%`, backgroundColor: '#F97316' }}
-            >
-              <span className="text-white text-xs font-medium">
-                {somPercentage.toFixed(1)}%
-              </span>
-            </div>
+              className="h-full rounded-full transition-all duration-700"
+              style={{ width: `${somDisplayPercentage}%`, backgroundColor: '#F97316' }}
+            />
           </div>
           <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
             {marketSize.som.description} ({marketSize.som.timeframe})
@@ -137,45 +129,45 @@ export default function MarketSizeChart({ marketSize }: MarketSizeChartProps) {
       {/* Detailed Breakdown */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
         {/* TAM Card */}
-        <div className="bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-200 dark:border-blue-700 rounded-lg p-4">
-          <h4 className="font-semibold text-blue-900 dark:text-blue-200 mb-2">
+        <div className="bg-black rounded-xl p-4 shadow-sm">
+          <h4 className="font-semibold text-white mb-2">
             TAM 계산 근거
           </h4>
-          <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">
+          <p className="text-sm text-white mb-2 leading-relaxed">
             {marketSize.tam.calculation}
           </p>
-          <div className="mt-3 pt-3 border-t border-blue-200 dark:border-blue-700">
-            <p className="text-xs text-blue-700 dark:text-blue-300">
+          <div className="mt-3 pt-3 border-t border-gray-700">
+            <p className="text-xs text-white/90">
               한국 전체 시장 규모
             </p>
           </div>
         </div>
 
         {/* SAM Card */}
-        <div className="bg-green-50 dark:bg-green-900/20 border-2 border-green-200 dark:border-green-700 rounded-lg p-4">
-          <h4 className="font-semibold text-green-900 dark:text-green-200 mb-2">
+        <div className="bg-black rounded-xl p-4 shadow-sm">
+          <h4 className="font-semibold text-white mb-2">
             SAM 계산 근거
           </h4>
-          <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">
+          <p className="text-sm text-white mb-2 leading-relaxed">
             {marketSize.sam.calculation}
           </p>
-          <div className="mt-3 pt-3 border-t border-green-200 dark:border-green-700">
-            <p className="text-xs text-green-700 dark:text-green-300">
+          <div className="mt-3 pt-3 border-t border-gray-700">
+            <p className="text-xs text-white/90">
               한국 내 서비스 가능 시장
             </p>
           </div>
         </div>
 
         {/* SOM Card */}
-        <div className="bg-orange-50 dark:bg-orange-900/20 border-2 border-orange-200 dark:border-orange-700 rounded-lg p-4">
-          <h4 className="font-semibold text-orange-900 dark:text-orange-200 mb-2">
+        <div className="bg-black rounded-xl p-4 shadow-sm">
+          <h4 className="font-semibold text-white mb-2">
             SOM 계산 근거
           </h4>
-          <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">
+          <p className="text-sm text-white mb-2 leading-relaxed">
             {marketSize.som.calculation}
           </p>
-          <div className="mt-3 pt-3 border-t border-orange-200 dark:border-orange-700">
-            <p className="text-xs text-orange-700 dark:text-orange-300">
+          <div className="mt-3 pt-3 border-t border-gray-700">
+            <p className="text-xs text-white/90">
               {marketSize.som.timeframe} 목표 시장 점유율
             </p>
           </div>

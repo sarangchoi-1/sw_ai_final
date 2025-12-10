@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const prompt = `You are a startup cofounder AI. Given the following idea and description, output a structured startup pack. RESPOND ALL TEXT IN KOREAN.
+    const prompt = `You are a startup cofounder AI. Given the following idea and description, output a structured startup pack. RESPOND ALL TEXT IN KOREAN. THINK STEP-BY-STEP AND PROVIDE A DETAILED PLAN.
 
 IMPORTANT: All market size calculations (TAM, SAM, SOM) MUST be based on the KOREAN market only. Use realistic Korean market data, population (51.7M), GDP, and industry-specific statistics.
 
@@ -35,22 +35,22 @@ Respond strictly in the following JSON format:
   },
   "marketSize": {
     "tam": {
-      "value": 1000000000000,
+      "value": 0,
       "unit": "KRW",
-      "description": "Total addressable market size in Korea (e.g., total Korean market for this industry)",
-      "calculation": "Detailed calculation based on Korean market data (e.g., Korean population × average spending × market penetration)"
+      "description": "Total addressable market size in Korea for this specific startup idea",
+      "calculation": "Calculate the actual TAM value based on the startup idea. Show detailed step-by-step calculation using Korean market data that results in the exact TAM value you provide."
     },
     "sam": {
-      "value": 500000000000,
+      "value": 0,
       "unit": "KRW",
-      "description": "Serviceable addressable market in Korea (realistically reachable portion of TAM)",
-      "calculation": "Detailed calculation showing how SAM is derived from TAM (e.g., TAM × addressable percentage based on demographics, geography, etc.)"
+      "description": "Serviceable Addressable Market - the portion of TAM that can actually be reached with this specific product/service",
+      "calculation": "Calculate the actual SAM value based on the startup idea. Show detailed step-by-step calculation that results in the exact SAM value you provide. The calculation must match the SAM value exactly."
     },
     "som": {
-      "value": 50000000000,
+      "value": 0,
       "unit": "KRW",
-      "description": "Serviceable obtainable market in Korea (realistic market share goal)",
-      "calculation": "Detailed calculation showing realistic market share goal (e.g., SAM × target market share percentage)",
+      "description": "Serviceable Obtainable Market - realistic market share for this specific startup in 3-5 years",
+      "calculation": "Calculate the actual SOM value based on the startup idea. Show detailed step-by-step calculation that results in the exact SOM value you provide. The calculation must match the SOM value exactly.",
       "timeframe": "Year 3-5"
     }
   },
@@ -83,17 +83,39 @@ Respond strictly in the following JSON format:
       "timeframe": "1~2년"
     }
   },
-  "validation": "List early validation experiments"
+  "validation": "Detailed validation plan with timeline. Format:\n\n[1주차-2주차] 초기 검증\n- 구체적 실험/행동\n- 예상 결과\n- 성공 기준\n\n[3주차-4주차] 사용자 피드백 수집\n- 구체적 실험/행동\n- 예상 결과\n- 성공 기준\n\n[1개월-3개월] MVP 테스트\n- 구체적 실험/행동\n- 예상 결과\n- 성공 기준\n\n[3개월-6개월] 초기 트랙션 확보\n- 구체적 실험/행동\n- 예상 결과\n- 성공 기준\n\n주요 리스크:\n- 리스크 1: 설명 및 대응 방안\n- 리스크 2: 설명 및 대응 방안"
 }
 
-IMPORTANT for marketSize:
+CRITICAL for marketSize - DO NOT USE EXAMPLE VALUES:
+- The example values (1000000000000, 500000000000, 50000000000) are ONLY placeholders
+- You MUST calculate actual TAM, SAM, and SOM values based on the specific startup idea provided
+- Each startup idea will have DIFFERENT market sizes - calculate them specifically for this idea
+- The "value" field must contain the actual calculated number (not the example)
+- The "calculation" field must show the step-by-step math that results in EXACTLY that value
+- The calculation text and the value MUST match - if calculation says "= ₩425억", then value must be 42500000000
 - All values must be in KRW (Korean Won)
 - Use realistic Korean market statistics
-- TAM should represent the total Korean market opportunity
-- SAM should be a realistic subset of TAM (typically 20-50% of TAM)
-- SOM should be a realistic market share goal (typically 1-10% of SAM for early stage)
-- Provide detailed calculations in Korean explaining the methodology
-- Consider Korean demographics, GDP, and industry-specific data
+- TAM should represent the total Korean market opportunity for THIS SPECIFIC startup idea
+- SAM calculation MUST be detailed and credible:
+  * DO NOT just say "X% of TAM"
+  * Break down by demographics (age groups, income levels, urban vs rural) with actual numbers
+  * Consider geography (Seoul metro, other cities, accessibility) with percentages
+  * Factor in technology adoption rates, infrastructure requirements with actual stats
+  * Consider product-market fit (who actually needs/uses this) with filtering percentages
+  * Show step-by-step calculation with actual Korean statistics that leads to the exact SAM value
+  * MUST end with the final calculation showing how the SAM value was derived
+  * Example: "Korean population 51.7M × target age 25-45 (35%) = 18.1M × urban (82%) = 14.8M × smartphone penetration (95%) = 14.1M × target segment (60%) = 8.5M × ₩50,000 avg spending = ₩425억 SAM"
+- SOM calculation MUST be detailed and credible:
+  * DO NOT just say "X% of SAM"
+  * Analyze competitive landscape with actual market shares of competitors
+  * Reference similar Korean startups and their actual Year 3-5 market share numbers
+  * Consider early-stage constraints with specific impact on achievable share
+  * Explain realistic growth timeline with percentages per year (Year 1: X%, Year 3: Y%, Year 5: Z%)
+  * Show step-by-step reasoning that leads to the exact SOM value
+  * MUST end with the final calculation showing how the SOM value was derived
+  * Example: "Market analysis shows 15% available share. Similar startups achieve 0.5-2% by Year 3. Given constraints, realistic target is 1.2%. SAM ₩425억 × 1.2% = ₩51억 SOM"
+- Provide detailed calculations in Korean explaining the methodology step-by-step
+- Use actual Korean statistics: population demographics, income distribution, urban/rural split, technology adoption rates
 
 IMPORTANT for competitors:
 - Provide 3-5 real competitors that operate in the same or similar space
@@ -102,14 +124,31 @@ IMPORTANT for competitors:
 - Focus on Korean competitors when possible, but include international ones if relevant
 - Make sure URLs are real and accessible
 
-IMPORTANT for xyz hypothesis:
-- X should describe a specific, measurable action with credible numbers
-- Y should describe the target audience with realistic market size numbers (based on Korean market)
-- Z should describe the expected outcome with measurable metrics and credible numbers
-- All numbers must be realistic and based on Korean market context
+IMPORTANT for xyz hypothesis (CRITICAL: This is for someone JUST STARTING a startup):
+- X (Action): Should be a realistic early-stage action (e.g., "launch MVP", "get first 100 users", "run pilot with 5 customers")
+  - Use conservative numbers: 10-100 users, 5-20 customers, 1-3 months timeframe
+  - NOT: "acquire 10,000 users" or "generate ₩1억 revenue" (too ambitious for starting)
+- Y (Target): Should describe a realistic early adopter segment
+  - Use small, specific numbers: 50-500 people, 10-50 companies, specific demographics
+  - NOT: "all Korean consumers" or "entire market" (too broad for starting)
+- Z (Outcome): Should be a realistic early validation metric
+  - Use conservative numbers: ₩100만-₩1000만 revenue, 5-20% conversion, 10-50 active users
+  - Timeframe: 3-6 months for early validation, 1-2 years for meaningful traction
+  - NOT: "₩10억 revenue" or "1 million users" (unrealistic for starting)
+- All numbers must reflect EARLY-STAGE startup reality: small, testable, achievable
+- Think MVP phase, not scaling phase
 - Use appropriate units: KRW for money, 명 for people, % for percentages, 회 for times/frequency
-- Include timeframe for Z outcome when relevant
-- Make sure the hypothesis is testable and measurable`;
+- Make sure the hypothesis is testable and measurable with limited resources
+
+IMPORTANT for validation plan:
+- Must include a detailed timeline with specific weeks/months
+- Format: [기간] 제목\n- 구체적 action plan\n- 예상 결과\n- 성공 기준
+- Timeline should cover: Week 1-2 (initial validation), Week 3-4 (user feedback), Month 1-3 (MVP testing), Month 3-6 (early traction)
+- Each phase should have specific, actionable experiments
+- Include measurable success criteria for each phase
+- List 3-5 key risks with specific mitigation strategies
+- All experiments should be low-cost and achievable for early-stage startup
+- Focus on validating core assumptions from XYZ hypothesis`;
 
     const completion = await openai.chat.completions.create({
       model: 'gpt-4o-mini',

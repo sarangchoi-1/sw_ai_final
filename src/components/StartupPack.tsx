@@ -178,13 +178,42 @@ export default function StartupPack({ pack }: StartupPackProps) {
         {/* Validation Plan (Optional) */}
         {pack.validation && (
           <div className="rounded-xl border border-[rgba(0,0,0,0.08)] bg-white p-6 shadow-sm">
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2 mb-4">
               <span className="text-xs font-semibold text-[#3B82F6]">06</span>
               <h3 className="text-lg font-semibold text-gray-900">리스크 & 검증 계획</h3>
             </div>
-            <p className="text-[#111] leading-relaxed whitespace-pre-line">
-              {pack.validation}
-            </p>
+            <div className="text-[#111] leading-relaxed whitespace-pre-line space-y-4">
+              {pack.validation.split('\n\n').map((section, index) => {
+                // Check if this section is a timeline phase (starts with [)
+                if (section.trim().startsWith('[')) {
+                  const lines = section.split('\n');
+                  const title = lines[0];
+                  const content = lines.slice(1).join('\n');
+                  return (
+                    <div key={index} className="border-l-2 border-[#3B82F6] pl-4 py-2">
+                      <h4 className="font-semibold text-[#111] mb-2">{title}</h4>
+                      <div className="text-[#111] text-sm space-y-1">
+                        {content.split('\n').map((line, lineIndex) => (
+                          <p key={lineIndex} className={line.startsWith('-') ? 'ml-2' : ''}>
+                            {line}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                }
+                // Regular text section
+                return (
+                  <div key={index} className="text-[#111]">
+                    {section.split('\n').map((line, lineIndex) => (
+                      <p key={lineIndex} className={line.startsWith('-') ? 'ml-2' : ''}>
+                        {line}
+                      </p>
+                    ))}
+                  </div>
+                );
+              })}
+            </div>
           </div>
         )}
       </div>
