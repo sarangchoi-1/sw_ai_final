@@ -113,7 +113,8 @@ CRITICAL for marketSize - DO NOT USE EXAMPLE VALUES:
   * Explain realistic growth timeline with percentages per year (Year 1: X%, Year 3: Y%, Year 5: Z%)
   * Show step-by-step reasoning that leads to the exact SOM value
   * MUST end with the final calculation showing how the SOM value was derived
-  * Example: "Market analysis shows 15% available share. Similar startups achieve 0.5-2% by Year 3. Given constraints, realistic target is 1.2%. SAM ₩425억 × 1.2% = ₩51억 SOM"
+  * CRITICAL: When calculating percentage, multiply SAM value by the percentage as a decimal (e.g., 1.2% = 0.012, not 1.2)
+  * Example: "Market analysis shows 15% available share. Similar startups achieve 0.5-2% by Year 3. Given constraints, realistic target is 1.2%. SAM ₩425억 × 1.2% = ₩5.1억 SOM (42,500,000,000 × 0.012 = 510,000,000)"
 - Provide detailed calculations in Korean explaining the methodology step-by-step
 - Use actual Korean statistics: population demographics, income distribution, urban/rural split, technology adoption rates
 
