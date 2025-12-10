@@ -58,7 +58,7 @@ export default function MarketSizeChart({ marketSize }: MarketSizeChartProps) {
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
               <div className="w-4 h-4 rounded bg-[#3B82F6]" />
-              <span className="font-semibold text-gray-900 dark:text-white">
+              <span className="font-semibold text-[#111]">
                 TAM (총 시장 규모)
               </span>
             </div>
@@ -72,7 +72,7 @@ export default function MarketSizeChart({ marketSize }: MarketSizeChartProps) {
               style={{ width: `${tamPercentage}%`, backgroundColor: '#3B82F6' }}
             />
           </div>
-          <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+          <p className="text-xs text-[#111] mt-1">
             {marketSize.tam.description}
           </p>
         </div>
@@ -82,7 +82,7 @@ export default function MarketSizeChart({ marketSize }: MarketSizeChartProps) {
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
               <div className="w-4 h-4 rounded bg-[#10B981]" />
-              <span className="font-semibold text-gray-900 dark:text-white">
+              <span className="font-semibold text-[#111]">
                 SAM (서비스 가능 시장)
               </span>
             </div>
@@ -96,7 +96,7 @@ export default function MarketSizeChart({ marketSize }: MarketSizeChartProps) {
               style={{ width: `${samPercentage}%`, backgroundColor: '#10B981' }}
             />
           </div>
-          <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+          <p className="text-xs text-[#111] mt-1">
             {marketSize.sam.description}
           </p>
         </div>
@@ -106,8 +106,8 @@ export default function MarketSizeChart({ marketSize }: MarketSizeChartProps) {
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
               <div className="w-4 h-4 rounded bg-[#F97316]" />
-              <span className="font-semibold text-gray-900 dark:text-white">
-                SOM (실질 취득 가능 시장)
+              <span className="font-semibold text-[#111]">
+                SOM (현실적으로 취득 가능한 시장)
               </span>
             </div>
             <span className="text-lg font-bold text-orange-600 dark:text-orange-400">
@@ -120,7 +120,7 @@ export default function MarketSizeChart({ marketSize }: MarketSizeChartProps) {
               style={{ width: `${somDisplayPercentage}%`, backgroundColor: '#F97316' }}
             />
           </div>
-          <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+          <p className="text-xs text-[#111] mt-1">
             {marketSize.som.description} ({marketSize.som.timeframe})
           </p>
         </div>

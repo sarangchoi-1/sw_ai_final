@@ -91,18 +91,18 @@ export default function FeedbackForm({ onSubmit }: FeedbackFormProps) {
 
   return (
     <div className="w-full border-t border-gray-200 dark:border-gray-700 pt-6 mt-6">
-      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+      <h3 className="text-xl font-semibold text-[#111] mb-4">
         피드백 남기기
       </h3>
-      <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
-        생성된 스타트업 팩에 대한 의견을 알려주세요. 더 나은 결과를 만드는 데 도움이 됩니다.
+      <p className="text-sm text-[#111] mb-6">
+        생성된 스타트업 팩에 대한 의견을 편하게 알려주세요.
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+            className="block text-sm font-medium text-[#111] mb-2"
           >
             이메일 주소
           </label>
@@ -112,7 +112,7 @@ export default function FeedbackForm({ onSubmit }: FeedbackFormProps) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="example@email.com"
-            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:text-white outline-none transition-all"
+            className="w-full px-4 py-3 bg-white border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-[#111] outline-none transition-all"
             disabled={loading}
           />
         </div>
@@ -120,7 +120,7 @@ export default function FeedbackForm({ onSubmit }: FeedbackFormProps) {
         <div>
           <label
             htmlFor="feedback"
-            className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+            className="block text-sm font-medium text-[#111] mb-2"
           >
             피드백 내용
           </label>
@@ -128,9 +128,9 @@ export default function FeedbackForm({ onSubmit }: FeedbackFormProps) {
             id="feedback"
             value={feedback}
             onChange={(e) => setFeedback(e.target.value)}
-            placeholder="생성된 스타트업 팩에 대한 의견을 자유롭게 작성해주세요."
+            placeholder="생성된 스타트업 팩에 대한 의견을 자유롭게 작성해주세요!"
             rows={5}
-            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:text-white outline-none transition-all resize-none"
+            className="w-full px-4 py-3 bg-white border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-[#111] outline-none transition-all resize-none"
             disabled={loading}
           />
         </div>
